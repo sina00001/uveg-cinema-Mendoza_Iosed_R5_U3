@@ -1,6 +1,6 @@
 export const environment = {
   production: false,
-  tmdbApiKey: 'TU_API_KEY_AQUI', // Reemplaza esto con tu clave real
+  tmdbApiKey: 'API_KEY_', // API unicamente como parte del entorno de pruebas
   tmdbBaseUrl: 'https://api.themoviedb.org/3',
   tmdbImageUrl: 'https://image.tmdb.org/t/p/w500'
 };
