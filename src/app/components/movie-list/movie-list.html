@@ -1,0 +1,15 @@
+<div *ngIf="loading" class="loading">Cargando películas...</div>
+<div *ngIf="error" class="error">{{ error }}</div>
+
+<!-- Grid de películas -->
+<div class="movie-grid" *ngIf="!loading && !error">
+  <div class="movie-card" *ngFor="let movie of movies" (click)="selectMovie(movie.id)">
+    <img [src]="imageBaseUrl + movie.poster_path" [alt]="movie.title" *ngIf="movie.poster_path">
+    <div class="movie-info">
+      <h3>{{ movie.title }}</h3>
+      <p class="rating">⭐ {{ movie.vote_average | number:'1.1-1' }} / 10</p>
+    </div>
+  </div>
+</div>
+<!-- Componente de detalle: Solo se muestra si hay una película seleccionada -->
+<app-movie-detail *ngIf="selectedMovieId" [movieId]="selectedMovieId"></app-movie-detail>

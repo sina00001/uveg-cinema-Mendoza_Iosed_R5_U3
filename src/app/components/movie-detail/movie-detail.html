@@ -1,0 +1,21 @@
+<div *ngIf="loading" class="loading">Cargando detalle...</div>
+<div class="detail-container" *ngIf="movie && !loading">
+  <div class="detail-poster">
+    <img [src]="imageBaseUrl + movie.poster_path" [alt]="movie.title">
+  </div>
+  <div class="detail-info">
+    <h2>{{ movie.title }}</h2>
+    <p class="tagline" *ngIf="movie.tagline"><em>{{ movie.tagline }}</em></p>
+    <div class="meta">
+      <span>⭐ {{ movie.vote_average | number:'1.1-1' }} / 10</span>
+      <span>📅 {{ movie.release_date | date:'yyyy' }}</span>
+      <span>⏱️ {{ movie.runtime }} min</span>
+    </div>
+    <div class="genres">
+      <span class="genre-tag" *ngFor="let genre of movie.genres">{{ genre.name }}</span>
+    </div>
+    <h3>Sinopsis</h3>
+    <p class="overview">{{ movie.overview }}</p>
+    <button class="close-btn" (click)="movie = null">Cerrar detalle</button>
+  </div>
+</div>
